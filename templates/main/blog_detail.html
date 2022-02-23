@@ -86,20 +86,20 @@
                         <div class="blog__details__btns">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    {% if post.get_previous_by_created_at %}
-                                        <a href="{% url 'blogs:blog_detail' pk=post.get_previous_by_created_at.id %}"
+                                    {% if post.get_next_by_created_at %}
+                                        <a href="{% url 'blogs:blog_detail' pk=post.get_next_by_created_at.id %}"
                                            class="blog__details__btns__item">
                                             <p><span class="arrow_left"></span> Previous Pod</p>
-                                            <h5>{{ post.get_previous_by_created_at.title|slice:'45' }}</h5>
+                                            <h5>{{ post.get_next_by_created_at.title|slice:'45' }}</h5>
                                         </a>
                                     {% endif %}
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    {% if post.get_next_by_created_at %}
-                                        <a href="{% url 'blogs:blog_detail' pk=post.get_next_by_created_at.id %}"
+                                    {% if post.get_previous_by_created_at %}
+                                        <a href="{% url 'blogs:blog_detail' pk=post.get_previous_by_created_at.id %}"
                                            class="blog__details__btns__item blog__details__btns__item--next">
-                                            <p>Next Pod <span class="arrow_right"></span></p>
-                                            <h5>{{ post.get_next_by_created_at.title|slice:'45' }}</h5>
+                                            <p> Next Pod<span class="arrow_right"></span></p>
+                                            <h5>{{ post.get_previous_by_created_at.title|slice:'45' }}</h5>
                                         </a>
                                     {% endif %}
                                 </div>
